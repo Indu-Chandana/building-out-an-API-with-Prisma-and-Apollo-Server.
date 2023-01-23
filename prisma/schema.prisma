@@ -6,6 +6,12 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "mongodb"
   url      = env("DATABASE_URL")
+}
+
+model Post {
+  id String @id @default(auto()) @map("_id") @db.ObjectId  // Prisma database now recognize mongoDB _id as a prisma id
+  title String
+  username String
 }
