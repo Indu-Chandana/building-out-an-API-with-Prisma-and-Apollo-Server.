@@ -1,4 +1,4 @@
-import { prisma } from './db.js';
+import { prisma } from './db.js'; // db.ts -> db.js
 import { ApolloServer } from '@apollo/server';
 import { startStandaloneServer } from '@apollo/server/standalone';
 import { gql } from 'graphql-tag';
@@ -35,7 +35,8 @@ import { gql } from 'graphql-tag';
         },
         Query: {
             getAllPosts: async () => {
-                return await prisma.post.findMany(); // Easy way to get a list of posts -> [post1, ....]
+                //   return await prisma.post.findMany(); // Easy way to get a list of posts -> [post1, ....]
+                return await prisma.post.findMany();
             }
         }
     };
